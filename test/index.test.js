@@ -1,11 +1,13 @@
 'use strict';
 
+require('dotenv').config()
 var chai = require('chai');
 var should = require('chai').should();
 var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 
 var d = require('../lib/index');
+d.accessToken = process.env.DRIBBBLE_ACCESS_TOKEN;
 
 describe('Dribbble', function () {
   describe('#shot', function () {
@@ -81,9 +83,9 @@ describe('Dribbble', function () {
       });
     });
 
-    describe('#followingPlayers', function () {
+    describe('#following', function () {
       it('should return the following players of the player', function () {
-        return d.player(1).followingPlayers().should.eventually.have.property('players');
+        return d.player(1).following().should.eventually.have.property('players');
       });
     });
 
