@@ -10,6 +10,12 @@ var d = require('../lib/index');
 d.accessToken = process.env.DRIBBBLE_ACCESS_TOKEN;
 
 describe('Dribbble', function () {
+  describe('#user', function () {
+    it('should return a user by id', function () {
+      return d.user(209513).should.eventually.have.property('name', 'Pixelpillow');
+    });
+  });
+
   describe('#shot', function () {
     it('should return a shot by id', function () {
       return d.shot(43424).should.eventually.have.property('id', 43424);

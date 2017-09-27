@@ -1,1 +1,1 @@
-module.exports = require('./lib/dribbble');
+module.exports = require('./lib/index.js');
